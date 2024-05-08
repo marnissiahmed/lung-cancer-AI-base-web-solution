@@ -1,0 +1,22 @@
+<div class="drop-zone" (drop)="dropHandler($event)" (dragover)="dragOverHandler($event)">
+    <p class="instructions">Drag and drop a file here</p>
+    <label mat-raised-button color="primary" (click)="fileInput.click()" class="upload-btn">
+        <strong style="color: blue">Browse your computer</strong>
+    </label>
+    <mat-icon matPrefix style="left: 50%; top: 50%;" aria-setsize="64">attach_file</mat-icon>
+    <input type="file" #fileInput hidden (change)="handleFileInput(fileInput.files)" accept=".mhd, .raw, .dcm, .nii" multiple>
+    <div class="file-details" *ngIf="selector" style="position: relative;">
+        <p>File Name: {{ mhdFile?.name || dcmFile.name }}</p>
+
+        <!-- Adjusted styles for the button -->
+
+    </div>
+    <div *ngIf="showLoadingBar" style="position: relative; display: inline-block; color: white;">
+        <mat-progress-spinner *ngIf="showLoadingBar" mode="indeterminate" [diameter]="60" aria-label="durationInSeconds">
+
+        </mat-progress-spinner>
+        <label style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">{{ durationInSeconds }}</label>
+    </div>
+
+    <button mat-raised-button color="primary" *ngIf="selector" (click)="uploadFiles()" style="position: absolute; bottom: 0%; left: 50%; transform: translate(-50%, -50%);">Upload</button>
+</div>

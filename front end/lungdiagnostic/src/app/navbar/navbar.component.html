@@ -1,0 +1,263 @@
+<mat-sidenav-container *ngIf="medicine.occupation!=='admin'" autosize>
+
+    <mat-sidenav-content>
+
+        <mat-sidenav #sidenav mode="side" opened="collapseOpen" class="mat-elevation-z8">
+            <mat-nav-list>
+                <mat-list-item style="top: 0px;">
+                    <button class="navbar-toggler d-inline" [ngClass]="{'toggled': collapseOpen}" type="button" (click)="toggleCollapse()">
+                    <mat-icon   mat-list-icon class="icon-button"> menu</mat-icon>
+                    
+                </button>
+                </mat-list-item>
+                <div class="menu-items-container">
+                    <mat-list-item [routerLink]="['home']" routerLinkActive="active-link">
+                        <mat-icon mat-list-icon class="icons">home</mat-icon>
+                        <span class="menu-item" *ngIf="collapseOpen">Home</span>
+
+                    </mat-list-item>
+
+                    <mat-list-item [routerLink]="['dashboard']" routerLinkActive="active-link">
+                        <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">dashboard</mat-icon>
+                        <span class="menu-item" *ngIf="collapseOpen">Dashboard</span>
+
+                    </mat-list-item>
+                    <mat-list-item [routerLink]="['patientlist']" routerLinkActive="active-link">
+                        <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">patient_list</mat-icon>
+                        <span class="menu-item" *ngIf="collapseOpen">Patients</span>
+
+                    </mat-list-item>
+                    <mat-list-item [routerLink]="['add_patient']" routerLinkActive="active-link">
+                        <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">medical_information</mat-icon>
+                        <span class="menu-item" *ngIf="collapseOpen">Add Patient</span>
+
+                    </mat-list-item>
+                    <mat-list-item [routerLink]="['plan']" routerLinkActive="active-link">
+                        <mat-icon mat-list-icon fontSet="material-symbols-outlined" class="icons">
+                            respiratory_rate
+                        </mat-icon>
+
+
+                        <span class="menu-item" *ngIf="collapseOpen">treatement</span>
+
+                    </mat-list-item>
+
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+        <div class="space-between-content">
+
+            <div class="logo">
+                <img class="icon" src="/assets/Lungcare.png" alt="Lung Icon">
+                <h1>LungCare</h1>
+            </div>
+            <mat-list-item class="media">
+
+
+                <button mat-icon-button [matMenuTriggerFor]="notificationMenu" (click)="badgevis = false">
+                    <mat-icon  [matBadge]="notifications.length" matBadgeColor="warn">notifications</mat-icon>
+                    
+                  </button>
+
+                <mat-menu #notificationMenu="matMenu" class="mat-menu-panel" style="width:600px;">
+                    <p>notification</p>
+                    <mat-list style="width: 500px;">
+                        <!-- Fake notification 1 -->
+                        <mat-list-item *ngFor="let notif of notifications" class="notification">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
+
+
+                            <div class="notification-content">{{notif.message}}</div>
+
+                            <button mat-button color="primary" *ngIf="notif.notification_type === 'collaboration_request'" (click)="preformance(stut='accepted')" class="accept-button">Accept</button>
+
+                            <!-- Reject Button -->
+                            <button mat-button color="warn" *ngIf="notif.notification_type === 'collaboration_request'" (click)="preformance(stut='rejected')" class="reject-button">Reject</button>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-menu>
+                <button mat-icon-button matTooltip="Chat" [matMenuTriggerFor]="ChatMenu">
+              <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+            </button>
+                <mat-menu #ChatMenu="matMenu" class="mat-menu-panel" style="width:600px;">
+                    <div class="menu-header">
+                        <button mat-menu-item (click)="switchToView('contacts', $event)"> <!-- Switch to contacts view -->
+                          <mat-icon>contacts</mat-icon>
+                        </button>
+                    </div>
+
+
+                    <mat-list style="max-width: max-content;" *ngIf="currentView === 'contacts'">
+                        <mat-list-item class="card" style="height: 70px;" *ngFor='let med of orga'>
+                            <img class="card__image" [src]="med.photo ?  med.photo : 'http://bootdey.com/img/Content/avatar/avatar1.png'" (click)="toggleChatVisibility(med._id)" alt="" />
+
+
+                            <h3 style="margin: top 0;color:black;">{{med.name}}</h3>
+
+                        </mat-list-item>
+                    </mat-list>
+                </mat-menu>
+                <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+                    <ng-container *ngIf="medicine.photo; else iconTemplate">
+                        <img [src]="'http://localhost:8000' + medicine.photo" alt="User Photo" class="user-photo"  style="font-size:50px;">
+                    </ng-container>
+                    <ng-template #iconTemplate>
+                        <mat-icon style="font-size:50px;">account_circle</mat-icon>
+                    </ng-template>
+                </button>
+                <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+                    <button mat-menu-item [routerLink]="['profile']">
+                <mat-icon>person</mat-icon>
+              <span>{{ medicine.name  }}</span>
+              </button>
+                    <button mat-menu-item routerLink="#">
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+              </button>
+                    <button mat-menu-item routerLink="#">
+                <mat-icon>help</mat-icon>
+                <span>Help</span>
+              </button>
+                    <mat-divider></mat-divider>
+                    <button mat-menu-item (click)="LogOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+                </mat-menu>
+            </mat-list-item>
+            <app-chat [(isChatVisible)]="isChatVisible" [(id)]="id"></app-chat>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<mat-sidenav-container autosize *ngIf="medicine.occupation==='admin'">
+
+    <mat-sidenav-content>
+        <div class="space-between-content">
+
+            <div class="logo">
+                <img class="icon" src="/assets/Lungcare.png" alt="Lung Icon">
+                <h1>LungCare</h1>
+            </div>
+            <mat-list-item class="media">
+
+
+                <button mat-icon-button [matMenuTriggerFor]="notificationMenu" (click)="badgevis = false">
+                    <mat-icon  [matBadge]="notifications.length" matBadgeColor="warn">notifications</mat-icon>
+                    
+                  </button>
+
+                <mat-menu #notificationMenu="matMenu" class="mat-menu-panel" style="width:600px;">
+                    <p>notification</p>
+                    <mat-list style="width: 500px;">
+                        <!-- Fake notification 1 -->
+                        <mat-list-item *ngFor="let notif of notifications" class="notification">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
+
+                            <div class="notification-content">{{notif.message}}</div>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-menu>
+                <button mat-icon-button matTooltip="Chat" [matMenuTriggerFor]="ChatMenu">
+                    <i class="fa fa-comment fa-2x" aria-hidden="true"></i>
+                  </button>
+                <mat-menu #ChatMenu="matMenu" class="mat-menu-panel" style="width:600px;">
+                    <div class="menu-header">
+                        <button mat-menu-item (click)="switchToView('contacts', $event)"> <!-- Switch to contacts view -->
+                                <mat-icon>contacts</mat-icon>
+                              </button>
+                    </div>
+
+
+                    <mat-list style="max-width: max-content;" *ngIf="currentView === 'contacts'">
+                        <mat-list-item class="card" style="height: 70px;" *ngFor='let med of orga'>
+                            <img class="card__image" [src]="med.photo ?  med.photo : 'http://bootdey.com/img/Content/avatar/avatar1.png'" (click)="toggleChatVisibility(med._id)" alt="" />
+
+                            <h3 style="margin: top 0;color:black;">{{med.name}}</h3>
+
+                        </mat-list-item>
+                    </mat-list>
+                </mat-menu>
+                <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+                    <ng-container *ngIf="medicine.photo; else iconTemplate">
+                        <img [src]="'http://localhost:8000' + medicine.photo" alt="User Photo" class="user-photo"  style="font-size:50px;">
+                    </ng-container>
+                    <ng-template #iconTemplate>
+                        <mat-icon style="font-size:50px;">account_circle</mat-icon>
+                    </ng-template>
+            </button>
+                <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+                    <button mat-menu-item [routerLink]="['profile']">
+                <mat-icon>person</mat-icon>
+              <span>{{ medicine.name  }}</span>
+              </button>
+                    <button mat-menu-item routerLink="#">
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+              </button>
+                    <button mat-menu-item routerLink="#">
+                <mat-icon>help</mat-icon>
+                <span>Help</span>
+              </button>
+                    <mat-divider></mat-divider>
+                    <button mat-menu-item (click)="LogOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+                </mat-menu>
+            </mat-list-item>
+            <app-chat [(isChatVisible)]="isChatVisible"></app-chat>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="row">
+            <div class="card" *ngFor="let doctor of medicines">
+                <div class="card-header">{{ doctor.occupation }} Account</div>
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Patient Image" width="150" class="rounded-circle p-1 bg-primary">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ doctor.name }}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ doctor.phone_number }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Age</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ doctor.email }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                    <button mat-icon-button color="{{ doctor.is_active ? 'primary' : 'warn' }}" (click)="activate(doctor)">
+                        <mat-icon>{{ doctor.is_active ? 'check_circle_outline' : 'circle' }}</mat-icon>
+                        
+                      </button>
+
+                    <button mat-icon-button style="left: 0px;" color="warn" (click)="deleteDoctor(doctor)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

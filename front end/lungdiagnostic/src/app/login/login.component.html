@@ -1,0 +1,155 @@
+<header>
+    <div class="logo">
+        <img class="icon" src="assets/Lungcare.png" alt="Lung Icon">
+        <h1>LungCare</h1>
+    </div>
+
+</header>
+
+<div class="section">
+    <div class="container">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center" id="container">
+            <h1 class="mb-2 pb-6">
+                <span>Log In</span><span>Sign Up</span>
+            </h1>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+
+            <label for="reg-log"></label>
+            <div class="card-3d-wrap mx-auto">
+                <div class="card-3d-wrapper">
+                    <div class="card-front">
+                        <div class="center-wrap">
+                            <div class="section text-center">
+                                <h2 class="text-100 text-center">Log In</h2>
+                                <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mb-3">
+                                    <div class="form-group">
+                                        <input type="email" class="form-style" placeholder="Email" id="loginemail" formControlName="email" />
+                                        <mat-icon matPrefix class="input-icon">alternate_email</mat-icon>
+                                        <span class="help-block" style="color: red;" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter a valid email!</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <input [type]="showPassword ? 'text' : 'password'" class="form-style" placeholder="Password" id="loginpassword" formControlName="password" />
+                                        <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" class="visible">
+                        <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                      </button>
+                                        <mat-icon matPrefix class="input-icon">lock_open</mat-icon>
+                                        <span class="help-block" style="color: red;" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Field required!</span>
+                                    </div>
+                                    <button class="btn mt-4" type="submit" [disabled]="!loginForm.valid">Login</button>
+                                </form>
+                                <p class="mb-0 mt-4 text-center"><a class="link">Forgot your password?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="center-wrap">
+                            <div class="section text-center">
+                                <h2 class="text-100 text-center">Sign Up</h2>
+                                <form *ngIf="is_superuser===false" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+
+                                    <div class="form-group">
+
+                                        <mat-icon matPrefix class="input-icon">person</mat-icon>
+                                        <input type="text" class="form-style" placeholder="Full Name" id="name" formControlName="name" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Field required</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">admin_panel_settings</mat-icon>
+
+                                        <select class="form-style" id="organization" formControlName="organization">
+                                           
+                                            
+                                            <option *ngFor="let organ of orga" [value]="organ._id">{{organ.name}}</option>
+                                                <!-- Add more occupation options as needed -->
+                                            </select>
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('occupation').valid && signupForm.get('occupation').touched">Please select an occupation</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">call</mat-icon>
+                                        <input type="tel" class="form-style" placeholder="Phone Number" id="number" formControlName="phone_number" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('phone_number').valid && signupForm.get('phone_number').touched">Field required</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">alternate_email</mat-icon>
+                                        <input type="email" class="form-style" placeholder="Email" id="email" formControlName="email" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</span>
+                                    </div>
+                                    <div formGroupName="passwords">
+                                        <div class="form-group mt-2">
+                                            <mat-icon matPrefix class="input-icon">lock</mat-icon>
+                                            <input [type]="showPassword ? 'text' : 'password'" class="form-style" placeholder="Password" id="password" formControlName="password" />
+                                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.password').valid && signupForm.get('passwords.password').touched">Field required</span>
+                                            <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" class="visible">
+                                          <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                                        </button>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <mat-icon matPrefix class="input-icon">lock</mat-icon>
+                                            <input [type]="showPassword ? 'text' : 'password'" class="form-style" placeholder="Confirm Password" id="confirmpassword" formControlName="confirmpassword" />
+                                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.confirmpassword').valid && signupForm.get('passwords.confirmpassword').touched">Field required</span>
+                                            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" class="visible">
+                                          <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                                        </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">work</mat-icon>
+                                        <select class="form-style" id="occupation" formControlName="occupation">
+                                                
+                                                <option value="doctor">Doctor</option>
+                                                <option value="radiologist">radiologist</option>
+                                                <!-- Add more occupation options as needed -->
+                                            </select>
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('occupation').valid && signupForm.get('occupation').touched">Please select an occupation</span>
+                                    </div>
+
+                                    <button type="submit" class="btn mt-4" [disabled]="!signupForm.valid">Register</button>
+                                </form>
+                                <form *ngIf="is_superuser===true" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+
+                                    <div class="form-group">
+                                        <mat-icon matPrefix class="input-icon">admin_panel_settings</mat-icon>
+                                        <input type="text" class="form-style" placeholder="name" id="name" formControlName="name" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Field required</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">call</mat-icon>
+                                        <input type="text" class="form-style" placeholder="phone number " id="number" formControlName="phone_number" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('phone_number').valid && signupForm.get('phone_number').touched">Field required</span>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <mat-icon matPrefix class="input-icon">alternate_email</mat-icon>
+                                        <input type="email" class="form-style" placeholder="Email" id="email" formControlName="email" />
+                                        <span class="help-block" style="color: red;" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</span>
+                                    </div>
+                                    <div formGroupName="passwords">
+                                        <div class="form-group mt-2">
+                                            <mat-icon matPrefix class="input-icon">lock</mat-icon>
+                                            <input [type]="showPassword ? 'text' : 'password'" class="form-style" placeholder="Password" id="password" formControlName="password" />
+                                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.password').valid && signupForm.get('passwords.password').touched">Field required</span>
+                                            <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" class="visible">
+                                          <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                                        </button>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <mat-icon matPrefix class="input-icon">lock</mat-icon>
+                                            <input [type]="showPassword ? 'text' : 'password'" class="form-style" placeholder="Confirm Password" id="confirmpassword" formControlName="confirmpassword" />
+                                            <span class="help-block" style="color: red;" *ngIf="!signupForm.get('passwords.confirmpassword').valid && signupForm.get('passwords.confirmpassword').touched">Field required</span>
+                                            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" class="visible">
+                                          <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                                        </button>
+                                        </div>
+                                    </div>
+
+
+                                    <button type="submit" class="btn mt-4" [disabled]="!signupForm.valid">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>

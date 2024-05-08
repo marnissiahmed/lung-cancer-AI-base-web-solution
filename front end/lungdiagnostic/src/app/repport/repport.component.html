@@ -1,0 +1,63 @@
+<div>
+    <div class="container" id="container">
+        <div class="report-title">
+            <h1>CHEST CT REPORT</h1>
+            <h3>{{medicine.name}}</h3>
+        </div>
+        <div class="patient-info">
+            <h2>Patient Information</h2>
+            <div class="form-group">
+                <label>Patient Name:</label>
+                <span>{{ patient.name }} {{ patient.last_name }}</span>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <span>{{ patient.age }}</span>
+            </div>
+
+            <div class="form-group">
+                <label>Medical Record Number:</label>
+                <span>{{ patient._id }}</span>
+            </div>
+        </div>
+
+        <hr class="horizontal-line">
+
+        <h2>Imaging Details</h2>
+        <div *ngIf="nodules.length > 0">
+            <div class="ct-findings" *ngFor="let i of nodules; let indx=index">
+                <div class="ct-finding">
+                    <label for="ctFindings">CT Findings:</label>
+                    <textarea id="ctFindings" class="form-control" required *ngIf="!textConversionEnabled" [(ngModel)]="nodules[indx].ctFindings"></textarea>
+                    <p *ngIf="textConversionEnabled">{{ nodules[indx].ctFindings }}</p>
+                </div>
+                <div class="nodule-image">
+                    <img [src]="nodules[indx]" alt="Nodule#indx" class="nodule-image">
+                    <p>Nodule#{{indx}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="impression">Suggested Follow-up: </label>
+            <textarea id="impression" class="form-control" required *ngIf="!textConversionEnabled" [(ngModel)]="impression"></textarea>
+            <p *ngIf="textConversionEnabled">{{ impression }}</p>
+        </div>
+        <h3> Signature</h3>
+        <canvas #signatureCanvas width="620" height="160" class="signatureCanvas"></canvas>
+        <br>
+        <div *ngIf="textConversionEnabled">
+            <img [src]="dataurl" alt="Signature Image" class="signatureImage">
+            <br>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-between" style="margin: 20 0 0 20 ;">
+        <div>
+            <button (click)="saveSignature()" class="btn btn-primary">Save Report</button>
+        </div>
+        <div>
+            <button (click)="submitReport()" class="btn btn-primary">Submit Report</button>
+        </div>
+    </div>
+</div>

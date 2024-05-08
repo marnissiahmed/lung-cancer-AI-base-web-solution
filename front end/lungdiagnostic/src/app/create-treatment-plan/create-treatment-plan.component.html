@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="create-treatment-plan">
+                <div class="treatement">
+                    <h2 class="title">Create Treatment Plan</h2>
+                    <h3>{{medicine.name}}</h3>
+                    <div class="patient-info">
+                        <h2>Patient Information</h2>
+                        <div class="form-group">
+                            <label>Patient Name:</label>
+                            <span>{{ patient.name }} {{ patient.last_name }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth:</label>
+                            <span>{{ patient.age }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Medical Record Number:</label>
+                            <span>{{ patient._id }}</span>
+                        </div>
+                    </div>
+                    <form [formGroup]="treatmentPlanForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" formControlName="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" formControlName="start_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" formControlName="end_date" required>
+                        </div>
+                        <!-- Add more form controls as needed -->
+                        <div class="form-actions">
+                            <button type="submit">Create Treatment Plan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="reports && reports.length > 0">
+                <div id="pdf-container" *ngFor="let url of pdfUrl">
+                    <iframe [src]="url" type="application/pdf" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

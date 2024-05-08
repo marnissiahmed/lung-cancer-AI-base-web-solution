@@ -1,0 +1,87 @@
+@import 'material-symbols';
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    justify-self: center;
+}
+
+.has-search {
+    position: relative;
+    font: 1em sans-serif;
+    width: 40rem;
+    margin-left: 10px;
+}
+
+.has-search .form-control {
+    position: relative;
+    padding-left: 2.375rem;
+    padding-right: 2.375rem;
+    border-radius: 60px;
+    width: 20rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+table {
+    animation-duration: 1ms;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    /* Adjust the top margin as needed */
+    justify-self: center;
+}
+
+.table-hover>tbody>tr:hover>td,
+.table-hover>tbody>tr:hover>th {
+    background-color: #CFF5FF;
+}
+
+.title {
+    top: 10px;
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-bottom: 10px;
+    justify-self: center;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    color: white;
+}
+
+th {
+    color: black;
+    background-color: #f0f0f0;
+}
+
+.user-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.mat-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.green-button {
+    color: green;
+}
+
+img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}

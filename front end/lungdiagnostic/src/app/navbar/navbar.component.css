@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Trade+Winds&display=swap');
+@import 'material-symbols';
+mat-toolbar {
+    background: #1e1e2f;
+    color: white;
+}
+
+mat-sidenav-container {
+    background: #1e1e2f;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+    width: 100%;
+    padding: auto;
+    /* Ensure the container takes the full viewport height */
+}
+
+.menu-item {
+    color: #ffffff;
+}
+
+mat-toolbar button .compte {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+mat-sidenav {
+    overflow: hidden;
+    background: #1e1e2f;
+    /* Background color */
+    color: white;
+    /* Text color */
+    width: 60px;
+    /* Adjust the width as needed */
+    z-index: 1000;
+    /* Adjust the z-index as needed */
+    position: fixed;
+    border-radius: 10px;
+    top: 10%;
+    left: 0;
+    bottom: 5%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center items vertically */
+    overflow-y: auto;
+    justify-content: center;
+    /* Add scrollbar if content overflows */
+}
+
+.user-photo {
+    width: 50px;
+    /* Adjust the width as needed */
+    height: 50px;
+    /* Adjust the height as needed */
+    border-radius: 50%;
+    /* Make it circular */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the container */
+    margin-right: 5px;
+    /* Add margin to separate from the icon */
+}
+
+.sidenav-opened {
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    background: #1e1e2f;
+    left: 0px;
+    width: max-content;
+    padding: 36px;
+    border-right: none;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    margin: 32;
+    position: fixed;
+    padding-top: 1%;
+    padding-bottom: 5%;
+    top: 5%;
+    left: 0;
+    height: 100%;
+    ;
+    width: auto;
+    /* Adjust the width as needed */
+    z-index: 1000;
+    /* Adjust the z-index as needed */
+    color: white;
+    /* Adjust the text color as needed */
+    overflow-y: auto;
+    /* Add scrollbar if content overflows */
+    justify-content: center;
+}
+
+mat-list-item {
+    color: white;
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 16px;
+}
+
+
+/* Add a border on the right side of each list item */
+
+.active-link {
+    background-color: lightgray;
+    /* Change this to your desired active link color */
+    color: blue;
+    /* Change this to your desired text color for the active link */
+}
+
+
+/* Remove the border from the last list item */
+
+
+/* Sidenav icon and title */
+
+mat-icon {
+    font-size: 24px;
+    /* Adjust the icon size */
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+.media {
+    margin-right: 20px;
+    right: 20px;
+    top: 2%;
+    position: absolute;
+    right: 0;
+}
+
+.media button {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.myicon {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* Adjust the logo and icon alignment */
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    transform: translateX(-50%);
+    /* Center the logo horizontally */
+}
+
+.space-between-content {
+    /* Vertically center items */
+    /* Create space between items */
+    /* Add padding to create space around content */
+    padding-top: 100px;
+    padding-left: 20px;
+    margin: 16px;
+}
+
+.sidenav-opened .space-between-content {
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin: 3%;
+    border-radius: 50%;
+    background-color: transparent;
+    justify-self: center;
+}
+
+.icons {
+    position: fixed;
+    margin: 2px;
+    color: white;
+    left: 0px;
+}
+
+.icon-button {
+    position: fixed;
+    margin: 2px;
+    color: white;
+    top: 0px;
+    left: 0px;
+}
+
+
+/* Style the notification button */
+
+button.mat-icon-button {
+    position: relative;
+}
+
+
+/* Style the badge (number of notifications) */
+
+button.mat-icon-button .mat-badge-content {
+    background-color: #ff5722;
+    /* Customize badge background color */
+    color: #fff;
+    /* Customize badge text color */
+    min-width: 20px;
+    /* Adjust the badge width */
+    min-height: 20px;
+    /* Adjust the badge height */
+    font-size: 12px;
+    /* Customize badge font size */
+    border-radius: 50%;
+    /* Make the badge circular */
+    position: absolute;
+    top: -8px;
+    /* Adjust badge position */
+    right: -8px;
+    /* Adjust badge position */
+}
+
+
+/* Style the notification list */
+
+::ng-deep.mat-menu-panel {
+    max-width: fit-content !important;
+    max-width: fit-content !important;
+}
+
+img.profile-photo-lg {
+    height: 32px;
+    /* Reduce height */
+    width: 32px;
+    /* Reduce width */
+    border-radius: 50%;
+}
+
+.mat-menu-panel {
+    width: 700px;
+    /* Adjust the width to your preference */
+    max-height: 400px;
+    /* Adjust the max height as needed */
+}
+
+mat-list {
+    max-width: 500px;
+    /* Set the maximum width of the notification list */
+    overflow-y: auto;
+    max-height: fit-content;
+    /* Add a vertical scrollbar if notifications overflow */
+}
+
+
+/* Style individual notification items */
+
+.notification {
+    top: 0px;
+    height: 200px;
+    border-bottom: 1px solid #e0e0e0;
+    /* Add a separator between notifications */
+    padding: 50px;
+    /* Adjust spacing around each notification item */
+}
+
+
+/* Style the notification icon */
+
+mat-list-item mat-icon {
+    font-size: 24px;
+    /* Customize the icon size */
+    margin-right: 16px;
+    /* Adjust the spacing between the icon and text */
+}
+
+
+/* Style the notification title and content */
+
+mat-list-item .notification-title {
+    font-weight: 500;
+    /* Customize the title font weight */
+    font-size: 16px;
+    /* Customize the title font size */
+}
+
+mat-list-item .notification-content {
+    font-size: 14px;
+    top: 0px;
+    /* Customize the content font size */
+    color: #757575;
+    /* Customize the content text color */
+}
+
+.card {
+    position: relative;
+    display: flex;
+    /* [1] */
+    align-items: center;
+    /* [2] */
+    max-height: fit-content;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 7px;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    margin: auto;
+    font-size: 15px;
+}
+
+.card p {
+    margin: auto;
+    font-size: 13px;
+    color: #65676b;
+}
+
+.card__image {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 2px;
+}
+
+.card__seen {
+    position: absolute;
+    /* [3] */
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: 10%;
+    word-wrap: break-word;
+    background: transparent;
+    border-color: azure;
+    color: white;
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col,
+.gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.mb-3,
+.my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+
+.h-100 {
+    height: 100%!important;
+}
+
+.shadow-none {
+    box-shadow: none!important;
+}

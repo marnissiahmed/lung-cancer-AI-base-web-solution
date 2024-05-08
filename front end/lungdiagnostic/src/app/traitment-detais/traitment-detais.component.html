@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="col-md-2">
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div *ngFor='let treat of treatement' class="create-treatment-plan">
+                <h2>Create Treatment Plan</h2>
+
+                <div class="patient-info">
+                    <h2>Patient Information</h2>
+                    <div class="form-group">
+                        <label>Patient Name:</label>
+                        <span>{{ treat.patient.name }} {{ treat.patient.last_name }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of Birth:</label>
+                        <span>{{ treat.patient.age }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Medical Record Number:</label>
+                        <span>{{ treat.patient._id }}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <p id="description">{{treat.description }}</p>
+                </div>
+                <div class="form-group">
+                    <label>Start Date:</label>
+                    <p id="startDate">{{ treat.start_date }}</p>
+                </div>
+                <div class="form-group">
+                    <label>End Date:</label>
+                    <p id="endDate">{{ treat.end_date }}</p>
+                </div>
+                <!-- Add more form controls as needed -->
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="col-md-2">
+    <button *ngIf="medicine.occupation==='doctor'" mat-raised-button (click)="addTreatment()">
+    <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">
+        clinical_notes
+    </mat-icon>
+</button>
+</div>

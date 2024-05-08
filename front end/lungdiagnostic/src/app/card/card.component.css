@@ -1,0 +1,34 @@
+/*card.component.css*/
+
+.more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background-color: #1e1e2f;
+    height: inherit;
+}
+
+.dashboard-card-content {
+    text-align: center;
+    flex-grow: 1;
+    top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100%;
+    flex: start;
+    align-items: stretch;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+}

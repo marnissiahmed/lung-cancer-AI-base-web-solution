@@ -1,0 +1,97 @@
+<h1>Choose the plan that fits for your team</h1>
+<div class="content">
+
+
+    <div class="card one">
+
+        <div class="top">
+            <div class="title">basic</div>
+            <div class="price-sec">
+                <span class="dollar">$</span>
+                <span class="price">100</span>
+
+            </div>
+        </div>
+        <div class="info">Limited features you will get on this package or plan</div>
+        <div class="details">
+            <div class="one">
+                <span>1 colaborator Doctor or radiologist colaborator</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>100GB Local Storage</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span> Duration 1 month </span>
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="one">
+                <span>Unlimited Data Transfer</span>
+                <i class="fas fa-times"></i>
+            </div>
+            <button (click)="pay(100,1)">Purchase</button>
+        </div>
+    </div>
+    <div class="card two">
+        <div class="top">
+            <div class="title">Extended</div>
+            <div class="price-sec">
+                <span class="dollar">$</span>
+                <span class="price">200</span>
+
+            </div>
+        </div>
+        <div class="info">Only some features you will get on this package or plan</div>
+        <div class="details">
+            <div class="one">
+                <span>4 colaborator radiologist or Doctor </span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>200GB Local Storage</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>Duration 4 Months</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>Unlimited Data Transfer</span>
+                <i class="fas fa-times"></i>
+            </div>
+            <button (click)="pay(200,4)">Purchase</button>
+        </div>
+    </div>
+    <div class="card three">
+        <div class="top">
+            <div class="title">Premium</div>
+            <div class="price-sec">
+                <span class="dollar">$</span>
+                <span class="price">400</span>
+
+            </div>
+        </div>
+        <div class="info">All features you will get on this package or plan</div>
+        <div class="details">
+            <div class="one">
+                <span>10 colaborator Doctor or radiologist</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>Unlimited Local Storage</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>Duration 1 years  </span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="one">
+                <span>Unlimited Data Transfer</span>
+                <i class="fas fa-check"></i>
+            </div>
+            <button (click)="pay(400,12)">Purchase</button>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

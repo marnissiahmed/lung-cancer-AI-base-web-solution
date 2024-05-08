@@ -1,0 +1,66 @@
+@import 'material-symbols';
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.lung-image {
+    flex: 1;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.info-container {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    flex: 2;
+    padding: 20px;
+}
+
+.patient-info {
+    margin-bottom: 20px;
+    top: 5%;
+}
+
+.nodule-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nodule-info {
+    margin-bottom: 20px;
+    justify-content: flex-end;
+}
+
+.nodule-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    background-color: transparent;
+}
+
+.nodule-table th,
+.nodule-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.nodule-image {
+    width: 128px;
+    height: auto;
+}
+
+.line {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 20px 0;
+}
+
+.analyse-btn {
+    top: 32px;
+    right: 50%;
+    width: fit-content;
+}

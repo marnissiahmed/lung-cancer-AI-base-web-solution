@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-lg-4" *ngFor="let patient of patients">
+        <div class="card" (click)="treat(patient)" *ngIf="medicine.occupation==='doctor'">
+            <div class="card-header">Patient Details</div>
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img [src]="patient.photo || 'http://bootdey.com/img/Content/avatar/avatar1.png'" alt="Patient Image" width="150" class="rounded-circle p-1 bg-primary">
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.name}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.last_name}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.phone_number}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Age</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.age}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.location}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="medicine.occupation==='radiologist'" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div *ngFor='let treat of treatement' class="create-treatment-plan">
+                    <h2>Create Treatment Plan</h2>
+
+                    <div class="form-group">
+                        <p id="endDate">{{ treat.create_date }}</p>
+                        <div class="form-group">
+                            <label>Patient Name:</label>
+                            <span>{{ treat.patient.name }} {{ treat.patient.last_name }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date of Birth:</label>
+                            <span>{{ treat.patient.age }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Medical Record Number:</label>
+                            <span>{{ treat.patient._id }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <p id="description">{{treat.description }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date:</label>
+                        <p id="startDate">{{ treat.start_date }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label>End Date:</label>
+                        <p id="endDate">{{ treat.end_date }}</p>
+                    </div>
+                    <!-- Add more form controls as needed -->
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>

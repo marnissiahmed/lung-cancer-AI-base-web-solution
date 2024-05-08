@@ -1,0 +1,99 @@
+.chatBox {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    margin: 40px;
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.overlay-chat-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    margin: 40px;
+    margin-bottom: 0;
+    font-size: 13px;
+    z-index: 999;
+}
+
+.chat-content {
+    overflow: auto;
+    height: 300px;
+}
+
+.card {
+    border-radius: 4px;
+}
+
+.card-header {
+    background: #683db8;
+}
+
+.header-title {
+    height: 50px;
+}
+
+.card-header-title i {
+    font-size: 10px;
+    color: #32e4cd;
+    margin-right: 6px;
+}
+
+.card-header .card-header-title {
+    color: #FFF;
+}
+
+.chat-content p {
+    background: #ecf1f8;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 0;
+}
+
+.chat-textarea {
+    position: relative;
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.card-footer {
+    margin-top: 10px;
+}
+
+.chat-message-group {
+    max-height: max-content;
+    overflow: auto;
+}
+
+.received-message {
+    float: left;
+    background-color: #485464;
+    max-width: 70%;
+    word-wrap: break-word;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.sent-message {
+    float: right;
+    background-color: #4308f3;
+    max-width: 70%;
+    word-wrap: break-word;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.received-message .message {
+    text-align: left;
+    color: #000;
+}
+
+.sent-message .message {
+    text-align: right;
+    color: #fff;
+}

@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    justify-self: center;
+    background-color: #1e1e2f;
+}
+
+.card {
+    background: #1e1e2f;
+    padding-left: 20px;
+}
+
+input {
+    background-color: #1e1e2f;
+}

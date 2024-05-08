@@ -1,0 +1,153 @@
+<!-- dashboard.component.html -->
+<div class="grid-container">
+    <h1 class="mat-h1" style="color: white;left:50%;">Dashboard</h1>
+    <mat-grid-list [cols]="(cardLayout | async)?.columns" rowHeight="200px">
+        <!-- Mini Cards -->
+        <mat-grid-tile>
+            <mat-card class="dashboard-card" style="background-color: #2298F1;
+            ">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div class="title">all patients</div>
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expand</button>
+                            <button mat-menu-item>Remove</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+
+                    <mat-icon>group</mat-icon>
+                    <div class="value">{{tot}}</div>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="dashboard-card" style="background-color: #66B92E;;">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div class="title">Non Cancer patient</div>
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expand</button>
+                            <button mat-menu-item>Remove</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+
+                    <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">pulmonology</mat-icon>
+                    <div class="value">{{non_cancer}}</div>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="dashboard-card" style="background-color: #D65B4A;;">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div class="title">Cancer patient</div>
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expand</button>
+                            <button mat-menu-item>Remove</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+
+                    <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">
+                        microbiology
+                    </mat-icon>
+                    <div class="value">{{cancer}}</div>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="dashboard-card" style="background-color: #4a66d6;;">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div class="title"> patient without scan</div>
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expand</button>
+                            <button mat-menu-item>Remove</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+
+                    <mat-icon>cancer</mat-icon>
+                    <div class="value">{{non_ana}}</div>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="dashboard-card" style="background-color: #359dbc;;">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div class="title">patient without treatement
+                        </div>
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expand</button>
+                            <button mat-menu-item>Remove</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+
+                    <mat-icon>cancer</mat-icon>
+                    <div class="value">{{non_treat}}</div>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <!-- Charts -->
+    <mat-grid-list [cols]="2">
+        <mat-grid-tile>
+            <app-card title="Monthly Revenue">
+                <canvas ngChartjs [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [chartType]="'line'"></canvas>
+            </app-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <app-card title="to day san and treatment">
+                <table class="table table-hover">
+                    <thead>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of today" class="user-item" (click)="daitlse(user)">
+                            <td><img [src]="user.photo|| 'http://bootdey.com/img/Content/avatar/avatar1.png'"></td>
+                            <td>
+                                {{ user.name }}
+                            </td>
+
+
+
+
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </app-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

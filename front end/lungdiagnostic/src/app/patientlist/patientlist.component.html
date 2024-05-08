@@ -1,0 +1,56 @@
+<mat-card-content>
+
+    <h2 class="title">patient list</h2>
+    <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>last name</th>
+                <th>location</th>
+                <th>age</th>
+                <th>date add</th>
+
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="patients.length > 0">
+            <tr *ngFor="let user of patients" class="user-item" (click)="daitlse(user)">
+                <td><img [src]="user.photo|| 'http://bootdey.com/img/Content/avatar/avatar1.png'"></td>
+                <td>
+                    {{ user.name }}
+                </td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.location }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.date_added }}</td>
+                <td>
+                    <button mat-icon-button color="primary" aria-label="Edit" (click)="editPatient(user._id,user)">
+                          <mat-icon>edit</mat-icon>
+                        </button>
+                    <button mat-icon-button color="warn" aria-label="Delete" (click)="deletePatient(user._id)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+
+                    <button *ngIf="medicine.occupation === 'radiologist'" mat-icon-button color="primary" aria-label="Add" class="green-button" (click)="onadd(user)">
+                        <mat-icon mat-list-icon class="icons" fontSet="material-symbols-outlined">
+                
+                           
+                                scan
+                              
+                            
+                    </mat-icon>
+                            
+                            </button>
+
+
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>

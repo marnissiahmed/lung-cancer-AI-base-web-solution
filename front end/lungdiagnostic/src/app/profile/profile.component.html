@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <div class="profile">
+        <div class="content">
+            <h1> Profile</h1>
+            <form action="">
+                <!-- Photo -->
+                <fieldset>
+                    <div class="grid-35">
+                        <img class="img-account-profile rounded-circle mb-2" [src]="medicine.photo ? 'http://localhost:8000' + medicine.photo : imagePreview || 'http://bootdey.com/img/Content/avatar/avatar1.png'" alt="Patient Image" width="150">
+                    </div>
+                    <div class="grid-65">
+
+                        <input type="file" class="btn" (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png">
+                        <button mat-icon-button type="button" *ngIf="imagePreview" (click)="saveChanges()">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                    </div>
+                </fieldset>
+
+                <!-- Fields -->
+                <fieldset *ngFor="let field of fields">
+                    <div class="grid-35">
+                        <label for="{{field.id}}">{{field.label}}</label>
+                    </div>
+                    <div class="grid-65">
+                        <span *ngIf="!field.editMode" id="{{field.id}}Output" id="{{field.id}}" [(ngModel)]="field.value">{{field.value}}</span>
+                        <input *ngIf="field.editMode" type="{{field.type}}" id="{{field.id}}" [(ngModel)]="field.value" tabindex="{{field.tabindex}}" />
+                        <button mat-icon-button type="button" *ngIf="!field.editMode" (click)="toggleEditMode(field)">
+                            <mat-icon  *ngIf="!field.editMode">
+                                mode_edit
+                            </mat-icon>
+                        </button>
+                        <button mat-icon-button type="button" *ngIf="field.editMode" (click)="cancelEdit(field)"> <mat-icon *ngIf="field.editMode">
+                            cancel
+                        </mat-icon >
+                    </button>
+                        <button mat-icon-button type="button" *ngIf="field.editMode" (click)="saveChanges(field)">
+                            <mat-icon  *ngIf="field.editMode">
+                                save
+                            </mat-icon>
+                            </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

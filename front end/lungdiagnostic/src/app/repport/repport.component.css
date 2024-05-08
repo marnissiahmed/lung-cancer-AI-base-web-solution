@@ -1,0 +1,53 @@
+.container {
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    width: 60%;
+    height: 60%;
+}
+
+.report-title {
+    align-self: flex-start;
+}
+
+.patient-info {
+    align-self: flex-end;
+}
+
+.horizontal-line {
+    width: 100%;
+    border-top: 1px solid #000;
+}
+
+.ct-findings {
+    display: flex;
+    align-items: center;
+}
+
+.ct-finding {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.nodule-image {
+    width: 150px;
+    height: 150px;
+    /* Adjust as needed */
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.signatureCanvas {
+    border: 2px dotted #CCCCCC;
+    border-radius: 15px;
+    cursor: crosshair;
+}
+
+.signatureImage {
+    width: 100px;
+    height: 100px;
+    border: #000;
+}

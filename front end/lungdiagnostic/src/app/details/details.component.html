@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">Patient Details</div>
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img [src]="patient.photo || 'http://bootdey.com/img/Content/avatar/avatar1.png'" alt="Patient Image" width="150" class="rounded-circle p-1 bg-primary">
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.name}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.last_name}}
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Age</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.age}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{patient.location}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-5" *ngFor="let index of analyses; let i = index" (click)="analyse(analyses[i])">
+        <div class="card">
+            <div class="card-header">Result: {{analyses[i].date}}</div>
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img [src]="image[i]" class="rounded-circle" width="256">
+                </div>
+            </div>
+        </div>
+    </div>

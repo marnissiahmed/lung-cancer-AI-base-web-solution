@@ -1,0 +1,76 @@
+<header>
+    <div class="logo">
+        <img class="icon" src="assets/Lungcare.png" alt="Lung Cancer Icon">
+        <h1>Lung Cancer Care</h1>
+    </div>
+</header>
+
+<main id="main">
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon"><i class="fas fa-lungs"></i></div>
+                        <h4 class="title"><a href="">Early Detection</a></h4>
+                        <p class="description">Detecting lung cancer in its early stages for better treatment outcomes.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
+                        <h4 class="title"><a href="">Comprehensive Care</a></h4>
+                        <p class="description">Providing comprehensive care and support for individuals with lung cancer.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="title"><a href="">Lung Cancer Detection AI</a></h4>
+                        <p class="description">Implementing AI solutions for the detection and management of lung cancer.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                        <h4 class="title"><a href="">Reporting Services</a></h4>
+                        <p class="description">Providing comprehensive reporting services for accurate assessment and decision-making.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Featured Services Section -->
+
+
+    <!-- End Features Section -->
+
+    <!-- ======= Services Section ======= -->
+
+    <!-- End Services Section -->
+
+
+    <section class="cta-section">
+        <button (click)="Sign(true)" class="cta-btn"> Organization Assessment</button>
+        <button (click)="Sign(false)" class="cta-btn"> Medicine Assessment</button>
+    </section>
+
+    <!-- Add the About Us/Team section here if you want -->
+    <router-outlet></router-outlet>
+
+    <!-- This is where child components will be rendered -->
+</main>
+
+<footer>
+    <div class="contact-info">
+        <p>Contact us: email@example.com | Phone: (123) 456-7890</p>
+    </div>
+    <p class="copyright">© 2023 Lung Cancer Care. All rights reserved.</p>
+</footer>

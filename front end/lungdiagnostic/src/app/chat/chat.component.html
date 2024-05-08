@@ -1,0 +1,34 @@
+<div class="chatBox overlay-chat-box" id="chatBox" *ngIf="isChatVisible">
+    <div class="card">
+        <div class="card-header header-title">
+            <p class="card-header-title">
+                <i class="fa fa-circle is-online"></i>
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width: 30px;"> {{medicine.name}}
+                <button mat-icon-button color="primary" aria-label="Add" style="float: right;" (click)="close()">
+                    <mat-icon class="icon">close</mat-icon>
+                </button>
+            </p>
+        </div>
+        <div id="chatbox-area">
+            <div class="card-content chat-content">
+
+
+                <div class="chat-message-group" *ngFor="let msg of message">
+                    <div class="chat-messages" [ngClass]="{'received-message': msg.message_type==='receive', 'sent-message': msg.message_type==='send'}">
+                        <div class="message">{{msg.message}}</div>
+                    </div>
+                </div>
+
+
+                <footer class="card-footer" id="chatBox-textbox">
+                    <div style="width: 100%">
+                        <textarea id="chatTextarea" class="chat-textarea" [(ngModel)]="messageInput" (keyup.enter)="sendmessage()" placeholder="Digite aqui"></textarea>
+                        <button mat-icon-button color="primary" aria-label="Add" class="green-button" (click)="sendmessage()">
+                            <mat-icon>send</mat-icon>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
