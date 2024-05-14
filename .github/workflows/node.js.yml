@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: frontend  # Change working directory to 'frontend'
+        working-directory: front end/lungdiagnostic  # Change working directory to 'frontend'
 
       - name: Run tests
         run: npm test
@@ -27,4 +27,4 @@ jobs:
 
       - name: Build
         run: npm run build
-        working-directory: frontend  # Change working directory to 'frontend'
+        working-directory: front end/lungdiagnostic  # Change working directory to 'frontend'
