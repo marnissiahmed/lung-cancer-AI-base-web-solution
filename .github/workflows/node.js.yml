@@ -23,7 +23,7 @@ jobs:
 
       - name: Run tests
         run: npm test
-        working-directory: frontend  # Change working directory to 'frontend'
+        working-directory: ront end/lungdiagnostic  # Change working directory to 'frontend'
 
       - name: Build
         run: npm run build
