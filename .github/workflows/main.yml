@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r backend/requirements.txt
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install Angular dependencies
+      run: |
+        cd frontend/lungdiagnostic
+        npm install
+
+    - name: Run Django tests
+      run: |
+        cd backend/application
+        python manage.py test
+
+    - name: Build Angular project
+      run: |
+        cd frontend/lungdiagnostic
+        npm run build
+
+    - name: Start Django server
+      run: |
+        cd backend/application
+        nohup python manage.py runserver 0.0.0.0:8000 &
+
+    - name: Start Angular server
+      run: |
+        cd frontend/lungdiagnostic
+        nohup npm start &
+
+    - name: Wait for servers to start
+      run: sleep 30
+
+    - name: Run end-to-end tests
+      run: |
+        # Your command to run end-to-end tests, such as using Cypress or Protractor
+        echo "Running end-to-end tests"
+        # Example:
+        # npm run e2e
