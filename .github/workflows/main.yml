@@ -10,20 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mongo:
-        image: mongo:latest
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongo --eval 'db.adminCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    env:
-      MONGO_URI: mongodb://localhost:27017/Medical_analyse
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -45,33 +31,27 @@ jobs:
 
     - name: Install Angular dependencies
       run: |
-        cd front end/lungdiagnostic
+        cd frontend/lungdiagnostic
         npm install
-
-    - name: Configure Django settings for MongoDB
-      run: |
-        sed -i "s/'ENGINE': 'django.db.backends.sqlite3'/'ENGINE': 'djongo'/g" backend/settings.py
-        sed -i "s/'NAME': BASE_DIR / 'db.sqlite3'/'NAME': 'test_db'/g" backend/settings.py
-        sed -i "/'NAME': 'Medical_analyse'/a \ \ \ \ \ \ \ \ 'CLIENT': {'host': 'mongodb://localhost:27017'}" backend/settings.py
 
     - name: Run Django tests
       run: |
-        cd back end/application
+        cd backend/application
         python manage.py test
 
     - name: Build Angular project
       run: |
-        cd front end/lungdiagnostic
+        cd frontend/lungdiagnostic
         npm run build
 
     - name: Start Django server
       run: |
-        cd backend
+        cd backend/application
         nohup python manage.py runserver 0.0.0.0:8000 &
 
     - name: Start Angular server
       run: |
-        cd frontend
+        cd frontend/lungdiagnostic
         nohup npm start &
 
     - name: Wait for servers to start
