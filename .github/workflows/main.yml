@@ -52,7 +52,7 @@ jobs:
       run: |
         sed -i "s/'ENGINE': 'django.db.backends.sqlite3'/'ENGINE': 'djongo'/g" backend/settings.py
         sed -i "s/'NAME': BASE_DIR / 'db.sqlite3'/'NAME': 'test_db'/g" backend/settings.py
-        sed -i "/'NAME': 'test_db'/a \ \ \ \ \ \ \ \ 'CLIENT': {'host': 'mongodb://localhost:27017'}" backend/settings.py
+        sed -i "/'NAME': 'Medical_analyse'/a \ \ \ \ \ \ \ \ 'CLIENT': {'host': 'mongodb://localhost:27017'}" backend/settings.py
 
     - name: Run Django tests
       run: |
