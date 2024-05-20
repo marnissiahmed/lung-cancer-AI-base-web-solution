@@ -47,8 +47,8 @@ Copy code
 
 2. Install backend dependencies:
    ```
-pip install -r backend/application/requirements.txt
-```
+   pip install -r backend/application/requirements.txt
+   ```
 
 
 markdown
@@ -59,10 +59,6 @@ cd frontend/lungdiagnostic
 ```
 npm install
 ```
-
-markdown
-Copy code
-
 4. Set up MongoDB:
 - Install MongoDB and start the MongoDB service.
 - Create a MongoDB database for your application.
