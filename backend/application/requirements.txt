@@ -20,3 +20,15 @@ stripe==4.2.0
 tensorflow==2.10.0
 tensorflow_gpu==2.10.1
 django-rest-framework-mongoengine==3.4.1
+                   
+django-appconf==1.0.2                                       
+django-cors-headers==4.1.0                    
+django-extensions=3.2.3                   
+django-mongodb-engine==0.6.0                   
+django-multifilefield==1.0                      
+django-rest-framework-mongoengine 3.4.1               
+django-toolbox==0.2                      
+                
+djangorestframework-jwt==1.11.0                   
+djangorestframework-jwt-4== 1.12.0      
+djangotoolbox==1.8.0
