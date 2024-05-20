@@ -133,7 +133,3 @@ This project is licensed under the <a href="LICENSE">MIT License</a>.
 
 - Ahmed Marnissi (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
 
-## Acknowledgements
-- [Deep Lab contributors](https://link-to-deep-lab-docs)
-- [Django contributors](https://link-to-django-docs)
-- [Angular contributors](https://link-to-angular-docs)
