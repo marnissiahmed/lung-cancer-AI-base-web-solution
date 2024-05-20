@@ -31,27 +31,27 @@ jobs:
 
     - name: Install Angular dependencies
       run: |
-        cd front end/lungdiagnostic
+        cd frontend/lungdiagnostic
         npm install
 
     - name: Run Django tests
       run: |
-        cd back end/application
+        cd backend/application
         python manage.py test
 
     - name: Build Angular project
       run: |
-        cd front end/lungdiagnostic
+        cd frontend/lungdiagnostic
         npm run build
 
     - name: Start Django server
       run: |
-        cd back end/application
+        cd backend/application
         nohup python manage.py runserver 0.0.0.0:8000 &
 
     - name: Start Angular server
       run: |
-        cd front end/lungdiagnostic
+        cd frontend/lungdiagnostic
         nohup npm start &
 
     - name: Wait for servers to start
