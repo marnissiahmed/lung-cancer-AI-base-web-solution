@@ -134,4 +134,4 @@ This project is licensed under the <a href="LICENSE">MIT License</a>.
 - Ahmed Marnissi (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
 
 
-[![Everything Is AWESOME](https://img.youtube.com/vi/yjawzRhKpOs/0.jpg)]([https://www.youtube.com/watch?v=yjawzRhKpOs "]
+[![Everything Is AWESOME](https://youtu.be/-Db7tqamT48/0.jpg)](["https://youtu.be/-Db7tqamT48"]
