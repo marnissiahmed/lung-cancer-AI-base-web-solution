@@ -1,7 +1,7 @@
 # Lung Cancer Diagnostic Web Application
 
 <div align="center">
-  <img src="frontend/lungdiagnostic/src/assets/Lungcare.png" alt="Lung Cancer Diagnostic" />
+  <img src="analyse.png" alt="Lung Cancer Diagnostic" />
 </div>
 
 ## Introduction
