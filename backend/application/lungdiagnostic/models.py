@@ -41,11 +41,17 @@ class MedcineManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
         return self.create_user(email, password, **extra_fields)
+def medcine_photo_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/medcine_photos/<filename>
+    return os.path.join('medcine_photos', filename)
 
+def patient_photo_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/patient_photos/<filename>
+    return os.path.join('patient_photos', filename)
 class Medcine(AbstractBaseUser, PermissionsMixin):
     _id = models.ObjectIdField(primary_key=True)
     name = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to=default_storage.location, blank=True,null=True)
+    photo = models.ImageField(upload_to=medcine_photo_path, blank=True,null=True)
     phone_number = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
     occupation = models.CharField(max_length=100, blank=True,default=None)
@@ -65,7 +71,7 @@ class Medcine(AbstractBaseUser, PermissionsMixin):
     verbose_name_plural = "Medicines"
     
 class Patient(models.Model):
-    photo = models.ImageField(upload_to=default_storage.location, blank=True)
+    photo = models.ImageField(upload_to=patient_photo_path, blank=True)
     _id = models.ObjectIdField(primary_key=True)
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
