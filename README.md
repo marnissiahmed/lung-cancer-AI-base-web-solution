@@ -137,7 +137,7 @@ This project is licensed under the <a href="LICENSE">MIT License</a>.
 
 Check out this video tutorial for a visual walkthrough of using the Lung Cancer Diagnostic Web Application:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-Db7tqamT48" frameborder="0" allowfullscreen></iframe>
+(<iframe width="560" height="315" src="https://www.youtube.com/embed/-Db7tqamT48" frameborder="0" allowfullscreen></iframe>)
 
 This tutorial covers the registration process, uploading lung images, viewing diagnostic results, and navigating the dashboard.
 
