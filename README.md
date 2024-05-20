@@ -76,9 +76,35 @@ Copy code
 7. Compile frontend assets:
 cd frontend/lungdiagnostic
 npm run build
-
-less
-Copy code
+##projec Map
++ frontend
+  |__ lungdiangnostic * contains the code source of angular front end
+      - src
+      - app
+        - addpatient
+        - addscan
+        - analyse
+        - dash
+        - details
+        - home
+        - login
+        - navbar
+        - patientlist
+        - paymentandinfo
+        - profile
+        - repport
+        - statepage
+        - treatement
+        - traitment-detais
++ deeplearning
+  |__data preprossing
+  |__models
+  |__test
++backend
+  |__application
+     |__application
+      |__lungdiagnostic * contains the django application 
+      |__ diagnostic    * contains the intellgence model for lung cancer diagnostic
 
 ## Usage
 
@@ -104,7 +130,7 @@ This project is licensed under the <a href="LICENSE">MIT License</a>.
 
 ## Authors
 
-- John Doe (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
+- Ahmed Marnissi (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
 
 ## Acknowledgements
 
