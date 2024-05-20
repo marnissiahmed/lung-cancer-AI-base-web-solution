@@ -1,6 +1,6 @@
 # Lung Cancer Diagnostic Web Application
 
-![Lung Cancer Diagnostic](path_to_your_logo.png)
+![Lung Cancer Diagnostic](frontend/lungdiagnostic/src/assets/Lungcare.png)
 
 ## Introduction
 
