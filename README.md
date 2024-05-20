@@ -46,14 +46,19 @@ markdown
 Copy code
 
 2. Install backend dependencies:
+   ```
 pip install -r backend/application/requirements.txt
+```
+
 
 markdown
 Copy code
 
 3. Install frontend dependencies:
 cd frontend/lungdiagnostic
+```
 npm install
+```
 
 markdown
 Copy code
