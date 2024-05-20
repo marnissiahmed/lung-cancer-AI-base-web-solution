@@ -76,7 +76,7 @@ Copy code
 7. Compile frontend assets:
 cd frontend/lungdiagnostic
 npm run build
-##projec Map
+## projec Map
 + frontend
   |__ lungdiangnostic * contains the code source of angular front end
       - src
