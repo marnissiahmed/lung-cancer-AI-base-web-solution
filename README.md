@@ -77,6 +77,7 @@ Copy code
 cd frontend/lungdiagnostic
 npm run build
 ## projec Map
+```
 + frontend
   |__ lungdiangnostic * contains the code source of angular front end
       - src
@@ -105,7 +106,7 @@ npm run build
      |__application
       |__lungdiagnostic * contains the django application 
       |__ diagnostic    * contains the intellgence model for lung cancer diagnostic
-
+```
 ## Usage
 
 1. Register a new account or log in with an existing one.
