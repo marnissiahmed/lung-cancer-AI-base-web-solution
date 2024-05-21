@@ -129,8 +129,12 @@ Please follow the <a href="CODE_OF_CONDUCT.md">code of conduct</a> while contrib
 
 This project is licensed under the <a href="LICENSE">MIT License</a>.
 
+
 ## Authors
 
 - Ahmed Marnissi (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
 ## video tutorial 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/-Db7tqamT48/0.jpg)](https://www.youtube.com/watch?v=-Db7tqamT48)
+
+https://github.com/marnissiahmed/lung-cancer-AI-base-web-solution/assets/100381090/53f95050-fa2c-4e77-84be-6f6ca254c73a
+
+
