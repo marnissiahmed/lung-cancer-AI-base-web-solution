@@ -133,4 +133,4 @@ This project is licensed under the <a href="LICENSE">MIT License</a>.
 
 - Ahmed Marnissi (<a href="https://github.com/marnissiahmed">@marnissiahmed</a>)
 ## video tutorial 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Db7tqamT48/0.jpg)](https://www.youtube.com/watch?v=Db7tqamT48)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/-Db7tqamT48/0.jpg)](https://www.youtube.com/watch?v=-Db7tqamT48)
